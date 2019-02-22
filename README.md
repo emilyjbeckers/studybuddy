@@ -12,6 +12,13 @@ I'm learning development as I go here.
 - [Link to Skill dashboard](https://developer.amazon.com/alexa/console/ask)
 - [Link to AWS Console](https://us-east-2.console.aws.amazon.com/console/home?region=us-east-2)
 
+### TODOS
+- define samples for a lot of things
+- create dialogs
+- look into [delegation](https://developer.amazon.com/docs/custom-skills/delegate-dialog-to-alexa.html)
+- create back end
+
+
 ### Resources
 
 I've been learning using the [CodeAcademy course](https://www.codecademy.com/courses/learn-alexa/lessons/intro-to-alexa)

@@ -9,14 +9,9 @@ I'm learning development as I go here.
 
 `interactions.json` is a JSON file of the interaction model that can be uploaded to the skill dashboard by the person who owns it. The schema for this json file is described [here](https://developer.amazon.com/docs/smapi/interaction-model-schema.html).
 
-- [Link to Skill dashboard](https://developer.amazon.com/alexa/console/ask)
-- [Link to AWS Console](https://us-east-2.console.aws.amazon.com/console/home?region=us-east-2)
+the `backend` folder is the files from the alexa developer console code tab (copy-pasted)
 
-### TODOS
-- define samples for a lot of things
-- create dialogs
-- look into [delegation](https://developer.amazon.com/docs/custom-skills/delegate-dialog-to-alexa.html)
-- create back end
+- [Link to Skill dashboard](https://developer.amazon.com/alexa/console/ask)
 
 
 ### Resources

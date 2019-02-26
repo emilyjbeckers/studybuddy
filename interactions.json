@@ -1,227 +1,229 @@
 {
-  "interactionModel": {
-    "languageModel": {
-      "invocationName": "study buddy",
-      "intents": [
-        {
-          "name": "AMAZON.FallbackIntent",
-          "samples": []
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "study buddy",
+            "intents": [
+                {
+                    "name": "AMAZON.FallbackIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "YesIntent",
+                    "slots": [],
+                    "samples": [
+                        "yes",
+                        "yeah",
+                        "sure"
+                    ]
+                },
+                {
+                    "name": "NoIntent",
+                    "slots": [],
+                    "samples": [
+                        "no",
+                        "nope"
+                    ]
+                },
+                {
+                    "name": "HOMEStartQuizIntent",
+                    "slots": [],
+                    "samples": [
+                        "quiz me"
+                    ]
+                },
+                {
+                    "name": "HOMEStartWorkIntent",
+                    "slots": [],
+                    "samples": []
+                },
+                {
+                    "name": "HOMEStartNotesIntent",
+                    "slots": [],
+                    "samples": []
+                },
+                {
+                    "name": "QUIZAnswerIntent",
+                    "slots": [
+                        {
+                            "name": "QuizAnswer",
+                            "type": "AMAZON.SearchQuery",
+                            "samples": [
+                                "It's {QuizAnswer}",
+                                "{QuizAnswer}"
+                            ]
+                        }
+                    ],
+                    "samples": [
+                        "the answer is {QuizAnswer}",
+                        "what is {QuizAnswer}",
+                        "it is {QuizAnswer}"
+                    ]
+                },
+                {
+                    "name": "NOTESMakeNoteIntent",
+                    "slots": [
+                        {
+                            "name": "NoteContent",
+                            "type": "AMAZON.SearchQuery",
+                            "samples": [
+                                "{NoteContent}"
+                            ]
+                        }
+                    ],
+                    "samples": [
+                        "Make a note",
+                        "Make a note that {NoteContent}",
+                        "Remember {NoteContent}"
+                    ]
+                },
+                {
+                    "name": "NOTESMakeFlashcardIntent",
+                    "slots": [
+                        {
+                            "name": "FlashcardTerm",
+                            "type": "AMAZON.SearchQuery",
+                            "samples": [
+                                "It's {FlashcardTerm}",
+                                "{FlashcardTerm}"
+                            ]
+                        },
+                        {
+                            "name": "FlashcardDefinition",
+                            "type": "AMAZON.SearchQuery",
+                            "samples": [
+                                "It's {FlashcardDefinition}",
+                                "{FlashcardDefinition}"
+                            ]
+                        }
+                    ],
+                    "samples": [
+                        "Make a flashcard with definition {FlashcardDefinition}",
+                        "Make a flashcard with term {FlashcardTerm}",
+                        "Make a flashcard "
+                    ]
+                }
+            ],
+            "types": []
         },
-        {
-          "name": "AMAZON.CancelIntent",
-          "samples": []
+        "dialog": {
+            "intents": [
+                {
+                    "name": "NOTESMakeNoteIntent",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "NoteContent",
+                            "type": "AMAZON.SearchQuery",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.197277025713.712290362918"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "NOTESMakeFlashcardIntent",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "FlashcardTerm",
+                            "type": "AMAZON.SearchQuery",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.1349544027075.638683831465"
+                            }
+                        },
+                        {
+                            "name": "FlashcardDefinition",
+                            "type": "AMAZON.SearchQuery",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.1349544027075.35585102255"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "QUIZAnswerIntent",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "QuizAnswer",
+                            "type": "AMAZON.SearchQuery",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.1116562004474.1323531329697"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "delegationStrategy": "ALWAYS"
         },
-        {
-          "name": "AMAZON.HelpIntent",
-          "samples": []
-        },
-        {
-          "name": "AMAZON.StopIntent",
-          "samples": []
-        },
-        {
-          "name": "AMAZON.NavigateHomeIntent",
-          "samples": []
-        },
-        {
-          "name": "YesIntent",
-          "slots": [],
-          "samples": [
-            "yes",
-            "yeah",
-            "sure"
-          ]
-        },
-        {
-          "name": "NoIntent",
-          "slots": [],
-          "samples": [
-            "no",
-            "nope"
-          ]
-        },
-        {
-          "name": "HOMEStartQuizIntent",
-          "slots": [],
-          "samples": []
-        },
-        {
-          "name": "HOMEStartWorkIntent",
-          "slots": [],
-          "samples": []
-        },
-        {
-          "name": "HOMEStartNotesIntent",
-          "slots": [],
-          "samples": []
-        },
-        {
-          "name": "QUIZAnswerIntent",
-          "slots": [
+        "prompts": [
             {
-              "name": "QuizAnswer",
-              "type": "AMAZON.SearchQuery",
-              "samples": [
-                "It's {QuizAnswer}",
-                "{QuizAnswer}"
-              ]
-            }
-          ],
-          "samples": [
-            "the answer is {QuizAnswer}",
-            "what is {QuizAnswer}",
-            "it is {QuizAnswer}"
-          ]
-        },
-        {
-          "name": "NOTESMakeNoteIntent",
-          "slots": [
-            {
-              "name": "NoteContent",
-              "type": "AMAZON.SearchQuery",
-              "samples": [
-                "{NoteContent}"
-              ]
-            }
-          ],
-          "samples": [
-            "Make a note",
-            "Make a note that {NoteContent}",
-            "Remember {NoteContent}"
-          ]
-        },
-        {
-          "name": "NOTESMakeFlashcardIntent",
-          "slots": [
-            {
-              "name": "FlashcardTerm",
-              "type": "AMAZON.SearchQuery",
-              "samples": [
-                "It's {FlashcardTerm}",
-                "{FlashcardTerm}"
-              ]
+                "id": "Elicit.Slot.197277025713.712290362918",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "What would you like me to remember?"
+                    }
+                ]
             },
             {
-              "name": "FlashcardDefinition",
-              "type": "AMAZON.SearchQuery",
-              "samples": [
-                "It's {FlashcardDefinition}",
-                "{FlashcardDefinition}"
-              ]
-            }
-          ],
-          "samples": [
-            "Make a flashcard with definition {FlashcardDefinition}",
-            "Make a flashcard with term {FlashcardTerm}",
-            "Make a flashcard "
-          ]
-        }
-      ],
-      "types": []
-    },
-    "dialog": {
-      "intents": [
-        {
-          "name": "NOTESMakeNoteIntent",
-          "confirmationRequired": false,
-          "prompts": {},
-          "slots": [
-            {
-              "name": "NoteContent",
-              "type": "AMAZON.SearchQuery",
-              "confirmationRequired": false,
-              "elicitationRequired": true,
-              "prompts": {
-                "elicitation": "Elicit.Slot.197277025713.712290362918"
-              }
-            }
-          ]
-        },
-        {
-          "name": "NOTESMakeFlashcardIntent",
-          "confirmationRequired": false,
-          "prompts": {},
-          "slots": [
-            {
-              "name": "FlashcardTerm",
-              "type": "AMAZON.SearchQuery",
-              "confirmationRequired": false,
-              "elicitationRequired": true,
-              "prompts": {
-                "elicitation": "Elicit.Slot.1349544027075.638683831465"
-              }
+                "id": "Elicit.Slot.1349544027075.638683831465",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "What is the term for this flashcard?"
+                    }
+                ]
             },
             {
-              "name": "FlashcardDefinition",
-              "type": "AMAZON.SearchQuery",
-              "confirmationRequired": false,
-              "elicitationRequired": true,
-              "prompts": {
-                "elicitation": "Elicit.Slot.1349544027075.35585102255"
-              }
-            }
-          ]
-        },
-        {
-          "name": "QUIZAnswerIntent",
-          "confirmationRequired": false,
-          "prompts": {},
-          "slots": [
+                "id": "Elicit.Slot.1349544027075.35585102255",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "What is the definition of {FlashcardTerm} ?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "What is the flashcard definition?"
+                    }
+                ]
+            },
             {
-              "name": "QuizAnswer",
-              "type": "AMAZON.SearchQuery",
-              "confirmationRequired": false,
-              "elicitationRequired": true,
-              "prompts": {
-                "elicitation": "Elicit.Slot.1116562004474.1323531329697"
-              }
+                "id": "Elicit.Slot.1116562004474.1323531329697",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "What is the answer?"
+                    }
+                ]
             }
-          ]
-        }
-      ],
-      "delegationStrategy": "ALWAYS"
-    },
-    "prompts": [
-      {
-        "id": "Elicit.Slot.197277025713.712290362918",
-        "variations": [
-          {
-            "type": "PlainText",
-            "value": "What would you like me to remember?"
-          }
         ]
-      },
-      {
-        "id": "Elicit.Slot.1349544027075.638683831465",
-        "variations": [
-          {
-            "type": "PlainText",
-            "value": "What is the term for this flashcard?"
-          }
-        ]
-      },
-      {
-        "id": "Elicit.Slot.1349544027075.35585102255",
-        "variations": [
-          {
-            "type": "PlainText",
-            "value": "What is the definition of {FlashcardTerm} ?"
-          },
-          {
-            "type": "PlainText",
-            "value": "What is the flashcard definition?"
-          }
-        ]
-      },
-      {
-        "id": "Elicit.Slot.1116562004474.1323531329697",
-        "variations": [
-          {
-            "type": "PlainText",
-            "value": "What is the answer?"
-          }
-        ]
-      }
-    ]
-  }
+    }
 }

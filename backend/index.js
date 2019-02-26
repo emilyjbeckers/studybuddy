@@ -2,66 +2,22 @@
 // Please visit https://alexa.design/cookbook for additional examples on implementing slots, dialog management,
 // session persistence, api calls, and more.
 const Alexa = require('ask-sdk-core');
+const StartQuizHandler = require('./quiz').StartQuizHandler;
+const QuizAnswerHandler = require('./quiz').QuizAnswerHandler;
 
-const StartQuizHandler = {
-    canHandle(handlerInput) {
-        return handlerInput.requestEnvelope.request.type === 'IntentRequest'
-            && handlerInput.requestEnvelope.request.intent.name === 'HOMEStartQuizIntent';
-    },
-    handle(handlerInput) {
-        console.log('ok ok ok');
-        const attributes = handlerInput.attributesManager.getSessionAttributes();
-        const response = handlerInput.responseBuilder;
-        attributes.state = 'quiz';
-        return handlerInput.responseBuilder
-            .speak('what is the answer for pie')
-            .reprompt('what is the answer for pie')
-            .getResponse();
-    }
-};
-
-const QuizAnswerHandler = {
-    canHandle(handlerInput) {
-        return handlerInput.requestEnvelope.request.type === 'IntentRequest'
-            && handlerInput.requestEnvelope.request.intent.name === 'QUIZAnswerIntent'
-            && handlerInput.attributesManager.getSessionAttributes().state === 'quiz';
-    },
-    handle(handlerInput) {
-        const response = handlerInput.responseBuilder;
-        return handlerInput.responseBuilder
-            .speak('ok')
-            .getResponse();
-    }
-}
+const strings = require('./strings');
 
 const LaunchRequestHandler = {
     canHandle(handlerInput) {
         return handlerInput.requestEnvelope.request.type === 'LaunchRequest';
     },
     handle(handlerInput) {
-        console.log('where do these bad boys go');
-        const speechText = 'Welcome, you can say Hello or Help. Which would you like to try?';
         return handlerInput.responseBuilder
-            .speak(speechText)
-            .reprompt(speechText)
+            .speak(strings.WELCOME_TEXT)
+            .reprompt(strings.WELCOME_TEXT)
             .getResponse();
     }
 };
-
-// const HelloWorldIntentHandler = {
-//     canHandle(handlerInput) {
-//         return handlerInput.requestEnvelope.request.type === 'IntentRequest'
-//             && handlerInput.requestEnvelope.request.intent.name === 'HelloWorldIntent';
-//     },
-//     handle(handlerInput) {
-//         console.log('hmmmmmmmm');
-//         const speechText = 'Hello World!';
-//         return handlerInput.responseBuilder
-//             .speak(speechText)
-//             //.reprompt('add a reprompt if you want to keep the session open for the user to respond')
-//             .getResponse();
-//     }
-// };
 
 const HelpIntentHandler = {
     canHandle(handlerInput) {
@@ -69,14 +25,13 @@ const HelpIntentHandler = {
             && handlerInput.requestEnvelope.request.intent.name === 'AMAZON.HelpIntent';
     },
     handle(handlerInput) {
-        const speechText = 'You can say hello to me! How can I help?';
-
         return handlerInput.responseBuilder
-            .speak(speechText)
-            .reprompt(speechText)
+            .speak(strings.HELP_TEXT)
+            .reprompt(strings.HELP_TEXT)
             .getResponse();
     }
 };
+
 const CancelAndStopIntentHandler = {
     canHandle(handlerInput) {
         return handlerInput.requestEnvelope.request.type === 'IntentRequest'
@@ -84,12 +39,12 @@ const CancelAndStopIntentHandler = {
                 || handlerInput.requestEnvelope.request.intent.name === 'AMAZON.StopIntent');
     },
     handle(handlerInput) {
-        const speechText = 'Goodbye!';
         return handlerInput.responseBuilder
-            .speak(speechText)
+            .speak(strings.GOODBYE_TEXT)
             .getResponse();
     }
 };
+
 const SessionEndedRequestHandler = {
     canHandle(handlerInput) {
         return handlerInput.requestEnvelope.request.type === 'SessionEndedRequest';
@@ -110,7 +65,7 @@ const IntentReflectorHandler = {
     },
     handle(handlerInput) {
         const intentName = handlerInput.requestEnvelope.request.intent.name;
-        const speechText = `You just triggered ${intentName}`;
+        const speechText = strings.make(strings.INTENT_DEBUG_TEXT, intentName);
 
         return handlerInput.responseBuilder
             .speak(speechText)
@@ -128,11 +83,10 @@ const ErrorHandler = {
     },
     handle(handlerInput, error) {
         console.log(`~~~~ Error handled: ${error.message}`);
-        const speechText = `Sorry, I couldn't understand what you said. Please try again.`;
 
         return handlerInput.responseBuilder
-            .speak(speechText)
-            .reprompt(speechText)
+            .speak(strings.ERROR_TEXT)
+            .reprompt(strings.ERROR_TEXT)
             .getResponse();
     }
 };
